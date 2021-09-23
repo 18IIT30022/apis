@@ -19,4 +19,8 @@ export class BookingService {
     return this.BookModel.updateOne( {set: UpdateBookingDto} );
   }
 
+  showallBookings(Booked: Boolean ) {
+    return this.BookModel.find( {Booked} )
+  }
+
 }
