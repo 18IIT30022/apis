@@ -15,7 +15,7 @@ export class BookingService {
     return this.BookModel.find( {city} );
   }
 
-  async book(id: number, updateBookingDto: UpdateBookingDto) {
+  book(id: number, updateBookingDto: UpdateBookingDto) {
     return this.BookModel.updateOne( {set: UpdateBookingDto} );
   }
 
