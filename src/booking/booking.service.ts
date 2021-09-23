@@ -10,7 +10,6 @@ export class BookingService {
     return new this.BookModel(createBookingDto).save();
   }
 
-
   findCity(city: string) {
     return this.BookModel.find( {city} );
   }
@@ -19,8 +18,8 @@ export class BookingService {
     return this.BookModel.updateOne( {set: UpdateBookingDto} );
   }
 
-  showallBookings(Booked: Boolean ) {
-    return this.BookModel.find( {Booked} )
+  showallBookings() {
+    return this.BookModel.find( {Booked:true} )
   }
 
 }
