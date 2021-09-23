@@ -19,7 +19,7 @@ export class BookingController {
 
   @Patch(':id')
   book(@Param('id') id: string, @Body() updateBookingDto: UpdateBookingDto)  {
-    return this.bookingService.update(updateBookingDto);
+    return this.bookingService.book(updateBookingDto);
   }
   
   
