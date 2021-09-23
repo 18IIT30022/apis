@@ -17,9 +17,9 @@ export class BookingController {
     return this.bookingService.findCity(city);
   }
 
-  @Get(':Booked')
-  showallBookings(@Param('Booked') Booked: Boolean) {
-    return this.bookingService.showallBookings(Booked);
+  @Get('AllBooked')
+  showallBookings() {
+    return this.bookingService.showallBookings();
   }
 
   @Patch(':id')
