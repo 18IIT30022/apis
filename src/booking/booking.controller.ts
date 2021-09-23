@@ -17,10 +17,15 @@ export class BookingController {
     return this.bookingService.findCity(city);
   }
 
+  @Get(':Booked')
+  showallBookings(@Param('Booked') Booked: Boolean) {
+    return this.bookingService.showallBookings(Booked);
+  }
+
   @Patch(':id')
   book(@Param('id') id: string, @Body() updateBookingDto: UpdateBookingDto)  {
     return this.bookingService.book(updateBookingDto);
   }
-  
-  
+
+
 }
