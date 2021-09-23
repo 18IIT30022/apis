@@ -12,11 +12,11 @@ export class BookingService {
 
 
   findCity(city: string) {
-    return this.RegModel.find( {city} );
+    return this.BookModel.find( {city} );
   }
 
   async book(id: number, updateBookingDto: UpdateBookingDto) {
-    return this.RegModel.updateOne( {set: UpdateRegistrationDto} );
+    return this.BookModel.updateOne( {set: UpdateBookingDto} );
   }
 
 }
