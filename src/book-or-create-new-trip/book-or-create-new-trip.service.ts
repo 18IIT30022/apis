@@ -3,6 +3,7 @@ import { create_new_tour_by_clientDto } from './dto/create_new_tour_by_clientDto
 import { update_Book_TripDto } from './dto/update_Book_TripDto.dto';
 import { Trip, TripSchema } from './schemas/trip_details.schema';
 import { Users_Booked_Trips, Users_Booked_TripsSchema } from './schemas/users_booked_trips.schema';
+import { send_message_background } from './background_task/background.ts';
 
 @Injectable()
 export class BookOrCreateNewTripService {
@@ -48,6 +49,13 @@ export class BookOrCreateNewTripService {
       await this.Users_Booked_TripsModel.save( insert_trip );
     // --end
 
+
+    // Background_task
+    const job = {
+      message: 'Confirmation Message: You have Succesfully Booked'
+    }
+    send_message_background.addmessageToQueue(job);
+    //
     
     return await this.TripModel.save( updated );
   }
