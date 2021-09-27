@@ -13,6 +13,11 @@ export class BookOrCreateNewTripService {
 
 
   async create_new_tour_by_client(create_new_tour_by_clientDto: create_new_tour_by_clientDto) {
+    if( UserModel.user_type === 'DRIVER'){
+        console.log('Invalid User Type');
+        return;
+    }
+    
     const {city, origin, desitination, cost} = create_new_tour_by_clientDto;
 
     let new_tour = new Trip()
@@ -32,6 +37,11 @@ export class BookOrCreateNewTripService {
 
 
   async Book_trip(trip_id: number, update_Book_TripDto: update_Book_TripDto) {
+    
+    if( UserModel.user_type === 'CLIENT'){
+        console.log('Invalid User Type');
+      return;
+    }
     let trip_to_be_booked_by_driver = await this.TripModel.findOne(trip_id);
     trip_to_be_booked_by_driver.Booked = 'Booked';
     let updated = Object.assign(trip_to_be_booked_by_driver, update_Book_TripDto);
