@@ -8,7 +8,8 @@ import { send_message_background } from './background_task/background.ts';
 @Injectable()
 export class BookOrCreateNewTripService {
   constructor( @InjectModel(Trip.trip_id) private TripModel: Model<TripDocument>, 
-    @InjectModel(Users_Booked_Trips.users_booked_trips_id) private Users_Booked_TripsModel: Model<Users_Booked_TripsDocument>
+    @InjectModel(Users_Booked_Trips.users_booked_trips_id) private Users_Booked_TripsModel: Model<Users_Booked_TripsDocument>,
+    @InjectModel(User.user_id) private UserModel: Model<UserDocument> 
    ) {}
 
 
